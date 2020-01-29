@@ -1,4 +1,8 @@
 #!/usr/bin/ruby -w
+
+require "./toPPN"
+require "./solveRPN"
+
 puts "██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗    ████████╗ ██████╗           
 ██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝    ╚══██╔══╝██╔═══██╗          
 ██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗         ██║   ██║   ██║          
@@ -43,39 +47,12 @@ file.each do |str|
 		end
 	end
 end
-Opp = Struct.new(:input_vars, :input_opp, :out_wars)
-change = 1
-e_opps = ["+", "|"]
-while change === 1
-	stmt.each do |jbrish|
-		s_in_out = jbrish.split("=>")
-		proce = s_in_out[0].strip!.split(' ')
-		i_opp = []
-		i_var = []
-		proce.each do |oo|
-			if e_opps.include?oo
-				i_opp.push(oo)
-			else
-				i_var.push(oo.ord - 'a'.ord)
-			end
-		end
-		proce = s_in_out[1].strip!.split(' ')
-		o_opp = []
-		o_var = []
-		proce.each do |oo|
-			if e_opps.include?oo
-				i_opp.push(oo)
-			else
-				i_var.push(oo.ord - 'a'.ord)
-			end
-		end
-		Test = Opp.new(i_var, i_opp, [])
-	end
-	change = 0
-end
-Test["input_vars"].each do |pr|
-	puts pr
-end
-Test["input_opp"].each do |pr|
-	puts pr
+rule = Struct.new(:input_e, :out_e)
+rules = []
+stmt.each do |rle|
+	arr = rle.split("=>")
+	rpn = RPNExpression.from_infix arr[0]
+	puts rpn
+	my_res = solveRPN(rpn, vars)
+	puts my_res
 end
