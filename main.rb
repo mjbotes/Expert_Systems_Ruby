@@ -1,6 +1,6 @@
 #!/usr/bin/ruby -w
 
-require "./toPPN"
+require "./toRPN"
 require "./solveRPN"
 require "./colorize"
 
