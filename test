@@ -1,6 +1,6 @@
 ?abs
 #vfn
 
-( a | d ) + ( !s | q ) => c
+a => c
 
 =fas

@@ -1,0 +1,15 @@
+A <=> B
+
+?AB
+
+#=
+# A false B false
+
+#=B
+# both true
+
+=A
+#both true
+
+#=AB
+#both true

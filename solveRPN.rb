@@ -38,7 +38,7 @@ def solveRPN(exp, vals)
                 is_n=1
                 pl=1
             end
-            i = e[pl].ord - 'a'.ord
+            i = e[pl].ord - 'A'.ord
             if (i > -1 && i < 26)
                 if is_n === 1 
                     if (vals[i] === 1)
@@ -51,10 +51,6 @@ def solveRPN(exp, vals)
                 end
                 truth.push(p_val)
                 index += 1
-                puts truth
-                puts "-------"
-                puts index
-                puts "-------"
             end
     end
     truth[0]
